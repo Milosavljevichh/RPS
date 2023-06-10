@@ -1,0 +1,19 @@
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25%;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 25%; */
+    flex-direction: row;
+    gap: 12px;
+}
