@@ -6,17 +6,31 @@
     </head>
     <body>
         <script src="script.js"></script>
-        <div class="container">
-        <p>Choose your weapon!</p>
+        
+       
+            <div class="title">
+                 <h1>CHOOSE YOUR WEAPON!</h1>
+            </div>
+            <div class="container">
+                <p id="result"></p>
+                <div class="img-container">
+                    <img id="left">
+                    <img id="right">
+                </div>
+                
         <div class="btn-container">
-        <button onclick="getPlayerChoice('Rock')">Rock</button>
-        <button onclick="getPlayerChoice('Paper')">Paper</button>
-        <button onclick="getPlayerChoice('Scissors')">Scissors</button>
+
+        <button onclick="getPlayerChoice('Rock')" class="comic-button">
+            Rock
+        </button>
+          
+        <button onclick="getPlayerChoice('Paper')" class="comic-button">Paper</button>
+        <button onclick="getPlayerChoice('Scissors')" class="comic-button">Scissors</button>
         </div>
         
-        <p id="result"></p>
+        
         <div class="counter-container">
-        <p id="wins">0</p><p id="defeats">0</p>
+        <p>Wins: <span id="wins">0</span></p> <p>Defeats: <span id="defeats">0</span></p>
         </div>
     </div>
     </body>
