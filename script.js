@@ -1,84 +1,89 @@
-
+//GLOBAL SCORE VARIABLES
 let wins = 0
 let loses = 0
 
 
-function reset() {
-    let elem = document.getElementById("result")
+// RESET THE SCORE
+    function reset() {
+        let elem = document.getElementById("result")
 
-    if (wins === 5) {
-    wins = 0;
-    loses = 0;
-    alert('You won!')
-    resetBorder()
-    elem.innerText = "Ready to play again?"
-} else if (loses === 5) {
-    alert('You lost!')
-    wins = 0;
-    loses = 0;
-    resetBorder()
-    elem.innerText = "Ready to play again?"
+        if (wins === 5) {
+        wins = 0;
+        loses = 0;
+        alert('You won!')
+        resetBorder()
+        elem.innerText = "Ready to play again?"
+    } else if (loses === 5) {
+        alert('You lost!')
+        wins = 0;
+        loses = 0;
+        resetBorder()
+        elem.innerText = "Ready to play again?"
+        }
     }
-}
 
 
-function getPlayerChoice (value) {
-    resetBorder()
-    let cChoice = getComputerChoice();
-    let playerChoice = value;
-    declareWinner(playerChoice, cChoice);
-    setCounter();
-}
-
-function resetBorder() {
-    let rightImg = document.getElementById("right")
-    let leftImg = document.getElementById("left")
-    let middleImg = document.getElementById("middle")
-
-    if (rightImg.className || leftImg.className || middleImg.className === "glow-img") {
-        rightImg.classList.remove("glow-img")
-        leftImg.classList.remove("glow-img")
-        middleImg.classList.remove("glow-img")
+// START THE ROUND
+    function startRound (value) {
+        resetBorder()
+        let cChoice = getComputerChoice();
+        let playerChoice = value;
+        declareWinner(playerChoice, cChoice);
+        setCounter();
     }
-}
 
-function getComputerChoice () {
 
-    let rightImg = document.getElementById("right")
-    let leftImg = document.getElementById("left")
-    let middleImg = document.getElementById("middle")
+//RESET THE BORDER THAT SHOWS WHAT THE COMPUTER CHOSE
+    function resetBorder() {
+        let rightImg = document.getElementById("right")
+        let leftImg = document.getElementById("left")
+        let middleImg = document.getElementById("middle")
 
-    let choice = Math.random()
-    choice = Number(choice.toFixed(2))
-
-    let decision = ""
-    
-    if ( 2/3 <= choice && choice <= 1) {
-        decision = "Rock"
-        leftImg.className = "glow-img"
-        return decision
-    } else if (1/3 <= choice && choice <= 2/3) {
-        decision = "Paper"
-        middleImg.className = "glow-img"
-        return decision
-    } else {
-        decision = "Scissors"
-        rightImg.className = "glow-img"
-        return decision
+        if (rightImg.className || leftImg.className || middleImg.className === "glow-img") {
+            rightImg.classList.remove("glow-img")
+            leftImg.classList.remove("glow-img")
+            middleImg.classList.remove("glow-img")
+        }
     }
-}
+
+// DECIDES WHICH MOVE THE COMPUTER WILL PLAY
+    function getComputerChoice () {
+
+        let rightImg = document.getElementById("right")
+        let leftImg = document.getElementById("left")
+        let middleImg = document.getElementById("middle")
+
+        let choice = Math.random()
+        choice = Number(choice.toFixed(2))
+
+        let decision = ""
+        
+        if ( 2/3 <= choice && choice <= 1) {
+            decision = "Rock"
+            leftImg.className = "glow-img"
+            return decision
+        } else if (1/3 <= choice && choice <= 2/3) {
+            decision = "Paper"
+            middleImg.className = "glow-img"
+            return decision
+        } else {
+            decision = "Scissors"
+            rightImg.className = "glow-img"
+            return decision
+        }
+    }
 
 
+// SETS THE SCORE (WINS AND DEFEATS)
+    function setCounter () {
+        let wCounter = document.getElementById("wins")
+        let lCounter = document.getElementById("defeats")
+        lCounter.innerText = loses;
+        wCounter.innerText = wins;
+    }
 
-function setCounter () {
-    let wCounter = document.getElementById("wins")
-    let lCounter = document.getElementById("defeats")
-    lCounter.innerText = loses;
-    wCounter.innerText = wins;
-}
 
-
-
+// COMPARE PLAYER AND COMPUTER CHOICE
 function declareWinner (playerChoice, decision){
     let elem = document.getElementById("result")
     
@@ -98,7 +103,7 @@ function declareWinner (playerChoice, decision){
                 reset()
             }
             
-            //Paper choice
+    //Paper choice
         } else if (playerChoice === "Paper") {
             if (decision === "Paper") {
                 elem.innerText = "It's a tie!"
@@ -112,7 +117,7 @@ function declareWinner (playerChoice, decision){
                 reset()
             }
             
-            //Scissors
+    //Scissors
         } else {
             if (decision === "Scissors") {
                 elem.innerText = "It's a tie!"
