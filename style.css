@@ -70,7 +70,6 @@ img,
 .comic-button {
     display: inline-block;
     padding: 16px;
-    font-size: 24px;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -126,4 +125,23 @@ img,
  border-radius: 10px;
  padding: 12px;
  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .img-container {
+    gap: 0px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  h1 { 
+    text-align: center;
+  }
+
+  img, .glow-img {
+    max-width: 80px;
+    height: auto;
+  }
 }
